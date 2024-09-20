@@ -1,5 +1,9 @@
 ---
-const pageTitle ="what about me";
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+const pageTitle ="About Me";
+
 ---
 
 <html lang="en">
@@ -9,15 +13,13 @@ const pageTitle ="what about me";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		
 	</head>
 	<body>
-        <a href="/">home</a>
-        <a href="/orgasm/">orgasm</a>
-		<a href="/diypeen/">penis</a>
-		<a href="/about/">me</a>
-		<a href="/cv/">cv</a>
-        
-		<h1>{pageTitle}</h1>
+        <Navigation />
+        <div style="display: flex; flex-direction: column; min-height: 100vh;">
+			<div style="flex: 1;">
+		<h1>About Me</h1>
 		<p1>
 			Joshua Pearse is an artist and teacher, and currently a researcher at the Centre for Curating the Archive (CCA). They completed an undergraduate degree at the Michaelis School of Fine Art (University of Cape Town) and an MAFA at the China Academy of Art. Their research is interested in the logocentric bias of western technological development and how that logic produces archives that fetishise order and fidelity. Their research at the CCA centers on sound in the, ostensibly mute, Bleek & Lloyd archive. They are currently writing about the use of the gramophone, as a tool for cultural extraction, in early 20th century South African ethnography and its echo in contemporary digitisation projects. Underpinning all of their projects is a fascination with muddying the dichotomies between objects and information, analogue and the digital, and corporeal and the divine. 
 		</p1>
@@ -29,5 +31,8 @@ const pageTitle ="what about me";
 			notartjosh@gmail.com <br>
             (+27) 0737870176
 		</p1>
+			</div>
+		<Footer />
+		</div>
 	</body>
 </html>

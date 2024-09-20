@@ -1,5 +1,7 @@
 ---
-
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -11,17 +13,17 @@
 		<title>notart</title>
 	</head>
 	<body>
-		<a href="/">home</a>
-        <a href="/orgasm/">orgasm</a>
-		<a href="/diypeen/">penis</a>
-		<a href="/about/">me</a>
-		<a href="/cv/">cv</a>
+		<Navigation />
+        <div style="display: flex; flex-direction: column; min-height: 100vh;">
+            <div style="flex: 1;">
 		<h1>CV</h1>
         <ul>
             <li><a href="/curriculumVitae/entry-1">job 1</a></li>
             <li><a href="/curriculumVitae/entry-2">job 2</a></li>
             <li><a href="/curriculumVitae/entry-3">job 3</a></li>
           </ul>
-		
+            </div>
+          <Footer />
+        </div>
 	</body>
 </html>

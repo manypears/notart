@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 const pageTitle ="notart";
 ---
 
@@ -11,12 +14,12 @@ const pageTitle ="notart";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		
-        <a href="/orgasm/">orgasm</a>
-		<a href="/diypeen/">penis</a>
-		<a href="/about/">me</a>
-		<a href="/cv/">cv</a>
+		<Navigation />
+		<div style="display: flex; flex-direction: column; min-height: 100vh;">
+		<div style="flex: 1;">
 		<h1>hello</h1>
-		
+		</div>
+		<Footer />
+		</div>
 	</body>
 </html>

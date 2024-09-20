@@ -1,0 +1,23 @@
+---
+const platform = "instagram";
+const username = "notartjosh";
+---
+
+<footer>
+  <p>follow me on  <a href={`https://www.${platform}.com/${username}`}>{platform}</a> !</p>
+</footer>
+
+<style>
+    footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+    a {
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: #a281d4;
+      border: 4px ridge #ffffff;
+      text-decoration: none;
+    }
+  </style>
