@@ -1,23 +1,107 @@
 ---
-const platform = "instagram";
-const username = "notartjosh";
+import Navigation from "./Navigation.astro";
 ---
 
 <footer>
-  <p>follow me on  <a href={`https://www.${platform}.com/${username}`}>{platform}</a> !</p>
+    <p><a class="button" id="toggle-nav">hamburger</a></p>
+    <div class="nav-links" id="nav-links">
+        <Navigation />
+    </div>
 </footer>
 
 <style>
     footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-    a {
-      padding: 0.5rem 1rem;
-      color: white;
-      background-color: #a281d4;
-      border: 4px ridge #ffffff;
-      text-decoration: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        background: linear-gradient(
+            to bottom,
+            #436fd3 0%,          
+            #5b91df 5%,         
+            #4070da 10%, 
+            #3158d0 25%,        
+            #3760d7 80%,
+            #3055c8 95%,       
+            #23409f 100%         
+        );
+        width: 100%;
+        box-sizing: border-box;
     }
-  </style>
+
+    p {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    a.button {
+        padding: 0.25rem 1rem;
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 1px 2px rgba(58, 57, 57, 0.7);
+        background: linear-gradient(
+            to bottom,
+            #497439 0%,          
+            #7ba873 4%,         
+            #9fc099 5%, 
+            #81ae7a 10%,   
+            #609756 25%,     
+            #519841 80%,
+            #498839 95%,       
+            #397032 100%         
+        );
+        z-index: 1000;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        box-shadow: 0px 0 3px rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        align-items: center; /* Center the text */
+        cursor: pointer; 
+    }
+
+    a.button.active {
+    background-color: #ff5a5a; /* Change background color on active */
+    color: #fff; /* Change text color on active */
+    /* Add any other styles you want for the active state */
+}
+
+    .nav-links {
+        display: none; /* Hide by default */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position it absolutely */
+        bottom: 50px; /* Adjust to position above the footer */
+        left: 0; /* Align to the left */
+        background-color: #ff9776; /* Background color */
+        width: 200px; /* Full width */
+        z-index: 999; /* Make sure it is above other content */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links a {
+        padding: 10px;
+        color: rgb(255, 8, 8); /* Text color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .nav-links a:hover {
+        background-color: #ff7a4c; /* Change background on hover */
+    }
+</style>
+
+<script>
+    document.getElementById('toggle-nav').addEventListener('click', () => {
+        const navLinks = document.getElementById('nav-links');
+        const button = document.getElementById('toggle-nav');
+        navLinks.classList.toggle('active');
+        button.classList.toggle('active'); // Toggle class on the button
+    });
+</script>

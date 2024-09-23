@@ -1,28 +1,38 @@
 html {
     background-color: #ffeded;
-    
-  }
-  
-  body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
+}
+
+/* Body still takes up the full width */
+body {
+    margin: 0;
+    padding: 0rem;
     line-height: 1.5;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  h1 {
+}
+
+/* This container restricts the width of the main content */
+.container {
+    margin: 0 auto;
+    max-width: 80ch;
+}
+
+h1 {
     margin: 1rem 0;
     font-family: cursive;
     font-size: 4rem;
     color: rgb(218, 130, 232);
-  }
-
-  p1 {
-    color: rgb(0, 0, 0);
-
 }
+
+p {
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    background-color: blue;
+    color: white;
+    width: 100%; /* Make the footer span full width */
+    padding: 0rem;
+}
+
