@@ -3,6 +3,8 @@ import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 const pageTitle ="notart";
+
+import HoverImage from '../components/HoverImage.astro';
 ---
 
 <html lang="en">
@@ -17,7 +19,13 @@ const pageTitle ="notart";
 		<div style="display: flex; flex-direction: column; min-height: 100vh;">
 		<div style="flex: 1;">
 			<div class="container">
-		<h1>hello</h1>
+		<h1></h1>
+		<HoverImage 
+		staticSrc="src/assets/gifs/nose.png"
+		gifSrc="src/assets/gifs/nose.gif"
+		link="/orgasm" 
+		alt="Orgasm"
+	  />
 		</div>
 		</div>
 		<Footer />

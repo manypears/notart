@@ -1,0 +1,23 @@
+#panorama-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Send the iframe to the background */
+    border: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1; /* Bring content on top of the background */
+    color: white; /* Makes the text white */
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.pnlm-controls {
+    bottom: 20px; /* Position controls 20px from the bottom */
+    top: auto; /* Disable the top positioning */
+}

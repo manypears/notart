@@ -3,7 +3,7 @@ import Navigation from "./Navigation.astro";
 ---
 
 <footer>
-    <p><a class="button" id="toggle-nav">hamburger</a></p>
+    <p><a class="button" id="toggle-nav">notart</a></p>
     <div class="nav-links" id="nav-links">
         <Navigation />
     </div>
@@ -20,13 +20,13 @@ import Navigation from "./Navigation.astro";
         margin-top: 2rem;
         background: linear-gradient(
             to bottom,
-            #436fd3 0%,          
-            #5b91df 5%,         
-            #4070da 10%, 
-            #3158d0 25%,        
-            #3760d7 80%,
-            #3055c8 95%,       
-            #23409f 100%         
+            #303030 0%,          
+            #858585 5%,         
+            #727272 10%, 
+            #656565 25%,        
+            #4f4f4f 80%,
+            #303030 95%,       
+            #292929 100%         
         );
         width: 100%;
         box-sizing: border-box;
@@ -44,15 +44,14 @@ import Navigation from "./Navigation.astro";
         color: rgb(255, 255, 255);
         text-shadow: 1px 1px 2px rgba(58, 57, 57, 0.7);
         background: linear-gradient(
-            to bottom,
-            #497439 0%,          
-            #7ba873 4%,         
-            #9fc099 5%, 
-            #81ae7a 10%,   
-            #609756 25%,     
-            #519841 80%,
-            #498839 95%,       
-            #397032 100%         
+        to bottom,
+            #303030 0%,          
+            #858585 5%,         
+            #727272 10%, 
+            #656565 25%,        
+            #4f4f4f 80%,
+            #303030 95%,       
+            #292929 100%       
         );
         z-index: 1000;
         border-top-right-radius: 5px;
@@ -66,34 +65,46 @@ import Navigation from "./Navigation.astro";
     }
 
     a.button.active {
-    background-color: #ff5a5a; /* Change background color on active */
-    color: #fff; /* Change text color on active */
-    /* Add any other styles you want for the active state */
+    background: linear-gradient(
+        to bottom,
+            #303030 0%,                
+            #4f4f4f 80%,
+            #303030 95%,       
+            #292929 100%       
+        );
+    color: #ffffff;
 }
 
     .nav-links {
         display: none; /* Hide by default */
-        flex-direction: column; /* Stack links vertically */
-        position: absolute; /* Position it absolutely */
-        bottom: 50px; /* Adjust to position above the footer */
-        left: 0; /* Align to the left */
-        background-color: #ff9776; /* Background color */
-        width: 200px; /* Full width */
-        z-index: 999; /* Make sure it is above other content */
+       
     }
 
     .nav-links.active {
         display: flex; /* Show when active */
+        flex-direction: column; /* Stack links vertically */
+        background-color: #d7522d; /* Background color */
+        position: absolute; /* Position it absolutely */
+        bottom: 50px; /* Adjust to position above the footer */
+        left: 0; /* Align to the left */
+        width: 200px; /* Full width */
+        z-index: 999; /* Make sure it is above other content */
+    }
+
+    a.nav-links:hover {
+        background-color: #292929;
     }
 
     .nav-links a {
         padding: 10px;
         color: rgb(255, 8, 8); /* Text color */
-        text-decoration: none; /* Remove underline */
+         /* Remove underline */
+        cursor: pointer; 
     }
 
     .nav-links a:hover {
         background-color: #ff7a4c; /* Change background on hover */
+        color: rgb(255, 8, 8); /* Text color */
     }
 </style>
 

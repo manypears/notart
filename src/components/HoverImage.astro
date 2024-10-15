@@ -1,0 +1,45 @@
+---
+const { staticSrc, gifSrc, link, alt } = Astro.props;
+---
+
+<a href={link} class="hover-image-link">
+  <img src={staticSrc} alt={alt} class="hover-image" />
+</a>
+
+<style>
+  .hover-image-link {
+    display: inline-block; /* Treat it like an inline element */
+    text-decoration: none; /* Remove underline from link */
+  }
+
+  .hover-image {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 8px; /* Optional: Rounded corners */
+  }
+
+  /* Optionally, add hover styles for the link itself */
+  .hover-image-link:hover .hover-image {
+    opacity: 0.8; /* Slight opacity change on hover */
+  }
+</style>
+
+<script>
+  // Wait until the DOM is fully loaded before adding event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    // Use 'as HTMLImageElement' to tell TypeScript that this is an image element
+    const hoverImage = document.querySelector('.hover-image') as HTMLImageElement;
+
+    // Make sure we have an element before adding event listeners
+    if (hoverImage) {
+      hoverImage.addEventListener('mouseover', () => {
+        hoverImage.src = `${gifSrc}`; // Switch to GIF on hover
+      });
+
+      hoverImage.addEventListener('mouseout', () => {
+        hoverImage.src = `${staticSrc}`; // Revert back to static image
+      });
+    }
+  });
+</script>
