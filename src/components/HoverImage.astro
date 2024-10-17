@@ -1,51 +1,74 @@
 ---
-const { staticSrc, gifSrc, link, alt, width, height, customStyle } = Astro.props;
-
+const { staticSrc, videoSrc, link, alt, width, height, customStyle } = Astro.props;
 ---
 
-<a href={link} class="hover-image-link" style={customStyle}>
+<a href={link} class="hover-video-link" style={customStyle}>
   <img 
     src={staticSrc} 
     alt={alt} 
-    class="hover-image" 
-    data-gif-src={gifSrc} 
-    data-static-src={staticSrc} 
+    class="hover-video-placeholder" 
     style={`width: ${width}; height: ${height};`} />
+  <video 
+    class="hover-video" 
+    src={videoSrc} 
+    muted 
+    loop 
+    playsinline
+    style={`width: ${width}; height: ${height}; display: none;`} />
 </a>
 
 <style>
-  .hover-image-link {
+  .hover-video-link {
     display: inline-block;
     text-decoration: none;
+    position: relative; /* Required for absolute positioning of child elements */
   }
 
-  .hover-image {
+  .hover-video-placeholder {
     transition: all 0.3s ease;
-    border-radius: 8px;
-    object-fit: contain;
+    border-radius: 8px; /* Optional: rounded corners */
+    object-fit: contain; /* Maintain aspect ratio */
   }
 
-  .hover-image-link:hover .hover-image {
-    opacity: 0.8;
+  /* Hide the video by default */
+  .hover-video {
+    display: none; /* Hide video by default */
+    position: absolute; /* Position video above the image */
+    top: 0; /* Align video with the placeholder */
+    left: 0; /* Align video with the placeholder */
+    border-radius: 8px; /* Match rounded corners */
+    object-fit: contain; /* Maintain aspect ratio */
+  }
+
+  /* Show the video on hover */
+  .hover-video-link:hover .hover-video {
+    display: block; /* Show video on hover */
+  }
+
+  /* Hide the image when video is shown */
+  .hover-video-link:hover .hover-video-placeholder {
+    display: none; /* Hide the placeholder image on hover */
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Select all elements with the hover-image class
-    const hoverImages = document.querySelectorAll('.hover-image');
+    const hoverLinks = document.querySelectorAll('.hover-video-link');
 
-    // Loop through each hover image and add event listeners
-    hoverImages.forEach(hoverImage => {
-      const gifSrc = hoverImage.getAttribute('data-gif-src');
-      const staticSrc = hoverImage.getAttribute('data-static-src');
+    hoverLinks.forEach(link => {
+      const video = link.querySelector('.hover-video');
 
-      hoverImage.addEventListener('mouseover', () => {
-        hoverImage.src = `${gifSrc}?random=${new Date().getTime()}`;
+      // Play video on hover
+      link.addEventListener('mouseover', () => {
+        video.style.display = 'block'; // Show the video
+        video.play(); // Play the video
       });
 
-      hoverImage.addEventListener('mouseout', () => {
-        hoverImage.src = staticSrc; // Revert back to static image
+      // Pause video when mouse leaves
+      link.addEventListener('mouseout', () => {
+        video.pause(); // Pause the video
+        video.currentTime = 0; // Reset video to start
+        video.style.display = 'none'; // Hide the video
       });
     });
   });
