@@ -21,3 +21,6 @@
     bottom: 20px; /* Position controls 20px from the bottom */
     top: auto; /* Disable the top positioning */
 }
+html {
+  background-color: #000000;
+}

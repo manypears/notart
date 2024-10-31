@@ -1,0 +1,94 @@
+---
+import '../styles/cv.css';
+import { Content as EducationContent } from '../content/cv/education.md'; // Importing your Markdown content
+import { Content as WorkContent } from '../content/cv/work.md';
+import { Content as VolunteerContent } from '../content/cv/volunteering.md';
+import { Content as ExhibitContent } from '../content/cv/exhibitions.md';
+import { Content as SkillsContent } from '../content/cv/skills.md';
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/star_favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>CV</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Joshua Pearse</a></h1>
+        <p>I am an artist and teacher, and currently a researcher at the Centre for Curating the Archive (CCA). I completed an undergraduate degree at the Michaelis School of Fine Art (University of Cape Town) and an MAFA at the China Academy of Art. My research is interested in the logocentric bias of western technological development and how that logic produces archives that fetishise order and fidelity. My research at the CCA centers on sound in the, ostensibly mute, Bleek & Lloyd archive. I am currently writing about the use of the gramophone, as a tool for cultural extraction, in early 20th century South African ethnography and its echo in contemporary digitisation projects. Underpinning all of my projects is a fascination with muddying the dichotomies between objects and information, analogue and the digital, and corporeal and the divine. </p>
+    <p>notartjosh@gmail.com<br>(+27) 073 787 0176<br><a href='https://www.instagram.com/notartjosh/'>@notartjosh</a></p>
+    <p></p>
+    </header>
+
+    <section>
+        <div class="collapsible">
+          <button class="toggle-button">
+            <span class="arrow">v</span> Education
+          </button>
+          <div class="collapsible-content" style="display: block;"> <!-- Initially open -->
+            <EducationContent />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="collapsible">
+            <button class="toggle-button">
+                <span class="arrow">v</span> Work
+            </button>
+            <div class="collapsible-content" style="display: block;"> <!-- Initially open -->
+                <WorkContent />
+            </div>
+            
+
+        </div>
+        
+    </section>
+
+
+
+    <section>
+        <div class="collapsible">
+            <button class="toggle-button">
+                <span class="arrow">></span> Volunteering
+            </button>
+            <div class="collapsible-content">
+                <VolunteerContent />
+            </div>
+        </div>
+    </section>
+
+    <script src="/src/scripts/cv.js" type="module"></script>
+</body>
+</html>
+
+<section>
+    <div class="collapsible">
+        <button class="toggle-button">
+            <span class="arrow">v</span> Exhibitions
+        </button>
+        <div class="collapsible-content" style="display: block;"> <!-- Initially open -->
+            <ExhibitContent />
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="collapsible">
+        <button class="toggle-button">
+            <span class="arrow">v</span> Skills
+        </button>
+        <div class="collapsible-content" style="display: block;"> <!-- Initially open -->
+            <SkillsContent />
+        </div>
+    </div>
+</section>
+
+<div style="height: 140px;"></div>
+<div style="text-align: center;">
+    <a href="/" style="display: inline-block; text-align: center; width: 100%;">//end</a>
+</div>
+<div style="height: 140px;"></div>

@@ -1,5 +1,5 @@
 ---
-const { staticSrc, videoSrc, link, alt, width, height, customStyle } = Astro.props;
+const { staticSrc, videoSrc, link, alt, width, height, customStyle, hoverText } = Astro.props;
 ---
 
 <a href={link} class="hover-video-link" style={customStyle}>
@@ -15,6 +15,9 @@ const { staticSrc, videoSrc, link, alt, width, height, customStyle } = Astro.pro
     loop 
     playsinline
     style={`width: ${width}; height: ${height}; display: none;`} />
+  <div class="hover-text" style={`width: ${width}; height: ${height};`}>
+    {hoverText}
+  </div>
 </a>
 
 <style>
@@ -49,6 +52,22 @@ const { staticSrc, videoSrc, link, alt, width, height, customStyle } = Astro.pro
   .hover-video-link:hover .hover-video-placeholder {
     display: none; /* Hide the placeholder image on hover */
   }
+
+  .hover-text {
+    display: none; /* Hide text by default */
+    position: absolute;
+    top: 200%; 
+    left: 50%;
+    transform: translate(0%, 40%); /* Center the text */
+    color: rgba(255, 255, 255, 0.609);
+    text-align: center;
+    z-index: 2; /* Above the video */
+  }
+
+  /* Show the hover text on hover */
+  .hover-video-link:hover .hover-text {
+    display: block;
+  }
 </style>
 
 <script>
@@ -73,3 +92,4 @@ const { staticSrc, videoSrc, link, alt, width, height, customStyle } = Astro.pro
     });
   });
 </script>
+
